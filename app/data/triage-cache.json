@@ -1,0 +1,1034 @@
+{
+  "generated_at": "2026-10-03T19:21:51.635Z",
+  "provider": "stub",
+  "model": "keyword-rules-v1",
+  "results": {
+    "msg-001": {
+      "output": {
+        "message_id": "msg-001",
+        "kind": "noise",
+        "noise_reason": "Automated system notice",
+        "asks": [],
+        "updates": [],
+        "confidence": 0.9,
+        "rationale": "Matched from pattern for \"Automated system notice\"."
+      },
+      "provider": "stub",
+      "model": "keyword-rules-v1",
+      "latency_ms": 1
+    },
+    "msg-002": {
+      "output": {
+        "message_id": "msg-002",
+        "kind": "noise",
+        "noise_reason": "Newsletter or marketing",
+        "asks": [],
+        "updates": [],
+        "confidence": 0.93,
+        "rationale": "Matched text pattern for \"Newsletter or marketing\"."
+      },
+      "provider": "stub",
+      "model": "keyword-rules-v1",
+      "latency_ms": 0
+    },
+    "msg-003": {
+      "output": {
+        "message_id": "msg-003",
+        "kind": "work",
+        "noise_reason": null,
+        "asks": [
+          {
+            "title": "Overdue: Invoice INV-2291 — Kot Addu mobilisation",
+            "summary": "Dear Sir/Madam, Invoice INV-2291 dated 09 February for PKR 4,180,000 covering mobilisation works at Kot Addu remains unpaid and is now 32 days past due. This was submitted to your operations desk on 09 February and ackno",
+            "category": "invoice",
+            "controlled": [
+              "bank_details"
+            ],
+            "risk": "high",
+            "risk_reason": "Controlled category: bank_details",
+            "exposure": {
+              "amount": 4180000,
+              "currency": "PKR",
+              "per": "once",
+              "from": null,
+              "note": "Unpaid invoice amount"
+            },
+            "due": null,
+            "due_source": null,
+            "original_date": "2026-02-09",
+            "original_date_source": "dated 09 February",
+            "requester": {
+              "name": "Accounts Receivable — Delta Civil Works",
+              "email": "ar@deltacivilworks.com.pk"
+            },
+            "waiting_party": {
+              "name": "Accounts Receivable — Delta Civil Works",
+              "email": "ar@deltacivilworks.com.pk"
+            },
+            "suggested_owner": "Bilal",
+            "redirect_to": null,
+            "same_as": null,
+            "related_to": null
+          }
+        ],
+        "updates": [],
+        "confidence": 0.82,
+        "rationale": "flagged bank_details (matched \"payment\")."
+      },
+      "provider": "stub",
+      "model": "keyword-rules-v1",
+      "latency_ms": 5
+    },
+    "msg-004": {
+      "output": {
+        "message_id": "msg-004",
+        "kind": "work",
+        "noise_reason": null,
+        "asks": [
+          {
+            "title": "Site access cleared for two of our engineers at Kot Addu on Thursday 19th",
+            "summary": "I need site access cleared for two of our engineers at Kot Addu on Thursday 19th — Rizwan has their CNIC details already, he sent them to the desk last week. They will be on site 08:00 to 17:00.",
+            "category": "site_access",
+            "controlled": [],
+            "risk": "low",
+            "risk_reason": "No deadline or cost language found",
+            "exposure": null,
+            "due": "2026-03-19",
+            "due_source": "Thursday 19th",
+            "original_date": null,
+            "original_date_source": null,
+            "requester": {
+              "name": "Junaid Aslam",
+              "email": "junaid.aslam@pentlandinfra.com"
+            },
+            "waiting_party": {
+              "name": "Junaid Aslam",
+              "email": "junaid.aslam@pentlandinfra.com"
+            },
+            "suggested_owner": "Omar",
+            "redirect_to": null,
+            "same_as": null,
+            "related_to": null
+          },
+          {
+            "title": "Confirm whether Zenith Engineering's contractor all-risk insurance certificate was renewed",
+            "summary": "Can someone confirm whether Zenith Engineering's contractor all-risk insurance certificate was renewed? It expired at the end of February as far as I can see, and they are still working on the bund.",
+            "category": "insurance",
+            "controlled": [],
+            "risk": "high",
+            "risk_reason": "Mentions \"expired\"",
+            "exposure": null,
+            "due": null,
+            "due_source": null,
+            "original_date": null,
+            "original_date_source": null,
+            "requester": {
+              "name": "Junaid Aslam",
+              "email": "junaid.aslam@pentlandinfra.com"
+            },
+            "waiting_party": {
+              "name": "Junaid Aslam",
+              "email": "junaid.aslam@pentlandinfra.com"
+            },
+            "suggested_owner": "Ayesha",
+            "redirect_to": null,
+            "same_as": null,
+            "related_to": null
+          },
+          {
+            "title": "Delta Civil are calling me directly about an unpaid invoice from February.",
+            "summary": "Delta Civil are calling me directly about an unpaid invoice from February. I have nothing to tell them. Can someone find out where that sits?",
+            "category": "invoice",
+            "controlled": [],
+            "risk": "low",
+            "risk_reason": "No deadline or cost language found",
+            "exposure": null,
+            "due": null,
+            "due_source": null,
+            "original_date": null,
+            "original_date_source": null,
+            "requester": {
+              "name": "Junaid Aslam",
+              "email": "junaid.aslam@pentlandinfra.com"
+            },
+            "waiting_party": {
+              "name": "Junaid Aslam",
+              "email": "junaid.aslam@pentlandinfra.com"
+            },
+            "suggested_owner": "Bilal",
+            "redirect_to": null,
+            "same_as": "msg-003#0",
+            "related_to": null
+          }
+        ],
+        "updates": [],
+        "confidence": 0.8,
+        "rationale": "Numbered list: 3 separate asks. Invoice from the same organisation (Delta Civil Works) as msg-003#0."
+      },
+      "provider": "stub",
+      "model": "keyword-rules-v1",
+      "latency_ms": 3
+    },
+    "msg-005": {
+      "output": {
+        "message_id": "msg-005",
+        "kind": "noise",
+        "noise_reason": "Out-of-office auto-reply",
+        "asks": [],
+        "updates": [],
+        "confidence": 0.97,
+        "rationale": "Matched subject pattern for \"Out-of-office auto-reply\"."
+      },
+      "provider": "stub",
+      "model": "keyword-rules-v1",
+      "latency_ms": 0
+    },
+    "msg-006": {
+      "output": {
+        "message_id": "msg-006",
+        "kind": "work",
+        "noise_reason": null,
+        "asks": [
+          {
+            "title": "Project Meridian — data room access for buy-side counsel",
+            "summary": "Dear Operations, We act for the buy-side consortium on Project Meridian. Further to yesterday's call between the principals, please arrange virtual data room access for the four fee earners listed below, ideally today so",
+            "category": "data_room",
+            "controlled": [
+              "data_room"
+            ],
+            "risk": "high",
+            "risk_reason": "Controlled category: data_room",
+            "exposure": null,
+            "due": null,
+            "due_source": null,
+            "original_date": null,
+            "original_date_source": null,
+            "requester": {
+              "name": "Hina Saeed",
+              "email": "h.saeed@saeedandco.law"
+            },
+            "waiting_party": {
+              "name": "Hina Saeed",
+              "email": "h.saeed@saeedandco.law"
+            },
+            "suggested_owner": "Ayesha",
+            "redirect_to": null,
+            "same_as": null,
+            "related_to": null
+          }
+        ],
+        "updates": [],
+        "confidence": 0.82,
+        "rationale": "flagged data_room (matched \"data room\")."
+      },
+      "provider": "stub",
+      "model": "keyword-rules-v1",
+      "latency_ms": 1
+    },
+    "msg-007": {
+      "output": {
+        "message_id": "msg-007",
+        "kind": "noise",
+        "noise_reason": "Newsletter or marketing",
+        "asks": [],
+        "updates": [],
+        "confidence": 0.93,
+        "rationale": "Matched text pattern for \"Newsletter or marketing\"."
+      },
+      "provider": "stub",
+      "model": "keyword-rules-v1",
+      "latency_ms": 0
+    },
+    "msg-008": {
+      "output": {
+        "message_id": "msg-008",
+        "kind": "work",
+        "noise_reason": null,
+        "asks": [
+          {
+            "title": "Site access — Kot Addu solar, week of 16 March",
+            "summary": "Assalam o alaikum, Please raise gate passes for the following for Thursday 19 March, 08:00 to 17:00: - Hamza Iqbal, CNIC 35202-XXXXXXX-1 - Sana Malik, CNIC 35201-XXXXXXX-7 Both are inducted already so no fresh HSE briefi",
+            "category": "site_access",
+            "controlled": [],
+            "risk": "low",
+            "risk_reason": "No deadline or cost language found",
+            "exposure": null,
+            "due": "2026-03-18",
+            "due_source": "by Wednesday close",
+            "original_date": null,
+            "original_date_source": null,
+            "requester": {
+              "name": "Rizwan Haider",
+              "email": "rizwan.haider@pentlandinfra.com"
+            },
+            "waiting_party": {
+              "name": "Rizwan Haider",
+              "email": "rizwan.haider@pentlandinfra.com"
+            },
+            "suggested_owner": "Omar",
+            "redirect_to": null,
+            "same_as": "msg-004#0",
+            "related_to": null
+          }
+        ],
+        "updates": [],
+        "confidence": 0.82,
+        "rationale": "Site access at the same site (kot-addu) as msg-004#0."
+      },
+      "provider": "stub",
+      "model": "keyword-rules-v1",
+      "latency_ms": 1
+    },
+    "msg-009": {
+      "output": {
+        "message_id": "msg-009",
+        "kind": "noise",
+        "noise_reason": "Unsolicited sales or recruiting",
+        "asks": [],
+        "updates": [],
+        "confidence": 0.9,
+        "rationale": "Matched text pattern for \"Unsolicited sales or recruiting\"."
+      },
+      "provider": "stub",
+      "model": "keyword-rules-v1",
+      "latency_ms": 0
+    },
+    "msg-010": {
+      "output": {
+        "message_id": "msg-010",
+        "kind": "work",
+        "noise_reason": null,
+        "asks": [
+          {
+            "title": "Request for information — Licence No. GEN-2019-0447, Kot Addu Solar",
+            "summary": "Passing to the desk, I am on leave from tomorrow. D ---------- Forwarded message ---------- From: Bilal Qureshi <bilal.qureshi@pentlandinfra.com> Subject: Fwd: Fwd: FYI Daniyal — is this one of yours? I do not think it i",
+            "category": "regulatory",
+            "controlled": [],
+            "risk": "high",
+            "risk_reason": "Mentions \"enforcement\"",
+            "exposure": null,
+            "due": "2026-03-13",
+            "due_source": "within ten (10) working days of the date of this notice, being 27 February 2026",
+            "original_date": "2026-02-27",
+            "original_date_source": "notice dated 27 February 2026",
+            "requester": {
+              "name": "Daniyal Khan",
+              "email": "daniyal.khan@pentlandinfra.com"
+            },
+            "waiting_party": {
+              "name": "Licensing Directorate",
+              "email": "licensing@energyregulatory.gov.pk"
+            },
+            "suggested_owner": "Ayesha",
+            "redirect_to": null,
+            "same_as": null,
+            "related_to": null
+          }
+        ],
+        "updates": [],
+        "confidence": 0.82,
+        "rationale": "Forwarded 4 times; using the original sender (Licensing Directorate)."
+      },
+      "provider": "stub",
+      "model": "keyword-rules-v1",
+      "latency_ms": 0
+    },
+    "msg-011": {
+      "output": {
+        "message_id": "msg-011",
+        "kind": "noise",
+        "noise_reason": "Acknowledgement, no action",
+        "asks": [],
+        "updates": [],
+        "confidence": 0.86,
+        "rationale": "Short acknowledgement: \"Noted with thanks.\"."
+      },
+      "provider": "stub",
+      "model": "keyword-rules-v1",
+      "latency_ms": 0
+    },
+    "msg-012": {
+      "output": {
+        "message_id": "msg-012",
+        "kind": "work",
+        "noise_reason": null,
+        "asks": [
+          {
+            "title": "Renewal instruction required — marine cargo cover, Hub terminal equipment",
+            "summary": "Dear Operations team, The marine cargo policy covering equipment movements to Hub terminal (Policy MC-88214) expires on 31 March 2026. Underwriters have quoted renewal terms at a 6% increase on expiring, held open until ",
+            "category": "insurance",
+            "controlled": [],
+            "risk": "medium",
+            "risk_reason": "Mentions \"expires\"",
+            "exposure": null,
+            "due": "2026-03-25",
+            "due_source": "until 25 March",
+            "original_date": null,
+            "original_date_source": null,
+            "requester": {
+              "name": "Sadaf Jamil",
+              "email": "sadaf.jamil@crescentinsurancebrokers.com"
+            },
+            "waiting_party": {
+              "name": "Sadaf Jamil",
+              "email": "sadaf.jamil@crescentinsurancebrokers.com"
+            },
+            "suggested_owner": "Ayesha",
+            "redirect_to": null,
+            "same_as": null,
+            "related_to": null
+          }
+        ],
+        "updates": [],
+        "confidence": 0.82,
+        "rationale": "Single ask."
+      },
+      "provider": "stub",
+      "model": "keyword-rules-v1",
+      "latency_ms": 11
+    },
+    "msg-013": {
+      "output": {
+        "message_id": "msg-013",
+        "kind": "noise",
+        "noise_reason": "Newsletter or marketing",
+        "asks": [],
+        "updates": [],
+        "confidence": 0.93,
+        "rationale": "Matched text pattern for \"Newsletter or marketing\"."
+      },
+      "provider": "stub",
+      "model": "keyword-rules-v1",
+      "latency_ms": 0
+    },
+    "msg-014": {
+      "output": {
+        "message_id": "msg-014",
+        "kind": "work",
+        "noise_reason": null,
+        "asks": [
+          {
+            "title": "The bund around transformer T3 has been leaking since Tuesday.",
+            "summary": "The bund around transformer T3 has been leaking since Tuesday. There is standing oil inside the bund and some seepage at the eastern joint onto the gravel. Zenith's men noticed it, not us. I have put sand down and taped ",
+            "category": "hse_incident",
+            "controlled": [],
+            "risk": "high",
+            "risk_reason": "Mentions \"leak\"",
+            "exposure": null,
+            "due": null,
+            "due_source": null,
+            "original_date": null,
+            "original_date_source": null,
+            "requester": {
+              "name": "Rizwan Haider",
+              "email": "rizwan.haider@pentlandinfra.com"
+            },
+            "waiting_party": {
+              "name": "Rizwan Haider",
+              "email": "rizwan.haider@pentlandinfra.com"
+            },
+            "suggested_owner": "Ayesha",
+            "redirect_to": null,
+            "same_as": null,
+            "related_to": null
+          }
+        ],
+        "updates": [],
+        "confidence": 0.72,
+        "rationale": "Reply in thr-008 says it is \"nothing to do with\" the thread, so it is a new ask."
+      },
+      "provider": "stub",
+      "model": "keyword-rules-v1",
+      "latency_ms": 0
+    },
+    "msg-015": {
+      "output": {
+        "message_id": "msg-015",
+        "kind": "noise",
+        "noise_reason": "Broadcast to all staff",
+        "asks": [],
+        "updates": [],
+        "confidence": 0.9,
+        "rationale": "Matched to pattern for \"Broadcast to all staff\"."
+      },
+      "provider": "stub",
+      "model": "keyword-rules-v1",
+      "latency_ms": 0
+    },
+    "msg-016": {
+      "output": {
+        "message_id": "msg-016",
+        "kind": "work",
+        "noise_reason": null,
+        "asks": [
+          {
+            "title": "Account mandate — updated signatory list required",
+            "summary": "Dear Customer, Our records indicate that the authorised signatory mandate for account 0041-778-2 (Pentland Infrastructure Partners — Operations) was last updated in November 2023. Please provide an updated list of author",
+            "category": "banking_admin",
+            "controlled": [],
+            "risk": "low",
+            "risk_reason": "No deadline or cost language found",
+            "exposure": null,
+            "due": null,
+            "due_source": null,
+            "original_date": null,
+            "original_date_source": null,
+            "requester": {
+              "name": "Corporate Banking — Al Tijarah Bank",
+              "email": "corporate.services@altijarahbank.com"
+            },
+            "waiting_party": {
+              "name": "Corporate Banking — Al Tijarah Bank",
+              "email": "corporate.services@altijarahbank.com"
+            },
+            "suggested_owner": null,
+            "redirect_to": "Finance",
+            "same_as": null,
+            "related_to": null
+          }
+        ],
+        "updates": [],
+        "confidence": 0.82,
+        "rationale": "Single ask."
+      },
+      "provider": "stub",
+      "model": "keyword-rules-v1",
+      "latency_ms": 0
+    },
+    "msg-017": {
+      "output": {
+        "message_id": "msg-017",
+        "kind": "work",
+        "noise_reason": null,
+        "asks": [
+          {
+            "title": "Variation Order VO-14 — additional excavation, bund works",
+            "summary": "Dear Operations, Further to site instruction SI-09, please find attached Variation Order VO-14 covering additional excavation and disposal at the transformer bund, valued at PKR 1,240,000. We have held the plant on site ",
+            "category": "variation",
+            "controlled": [],
+            "risk": "high",
+            "risk_reason": "Mentions \"Standing time\"",
+            "exposure": {
+              "amount": 85000,
+              "currency": "PKR",
+              "per": "day",
+              "from": null,
+              "note": "accruing at PKR 85,000 per day"
+            },
+            "due": "2026-03-13",
+            "due_source": "by Friday 13 March",
+            "original_date": null,
+            "original_date_source": null,
+            "requester": {
+              "name": "Adeel Butt",
+              "email": "adeel.butt@zenitheng.com.pk"
+            },
+            "waiting_party": {
+              "name": "Adeel Butt",
+              "email": "adeel.butt@zenitheng.com.pk"
+            },
+            "suggested_owner": "Bilal",
+            "redirect_to": null,
+            "same_as": null,
+            "related_to": null
+          }
+        ],
+        "updates": [],
+        "confidence": 0.82,
+        "rationale": "Single ask."
+      },
+      "provider": "stub",
+      "model": "keyword-rules-v1",
+      "latency_ms": 0
+    },
+    "msg-018": {
+      "output": {
+        "message_id": "msg-018",
+        "kind": "noise",
+        "noise_reason": "Calendar response",
+        "asks": [],
+        "updates": [],
+        "confidence": 0.96,
+        "rationale": "Matched subject pattern for \"Calendar response\"."
+      },
+      "provider": "stub",
+      "model": "keyword-rules-v1",
+      "latency_ms": 0
+    },
+    "msg-019": {
+      "output": {
+        "message_id": "msg-019",
+        "kind": "update",
+        "noise_reason": null,
+        "asks": [],
+        "updates": [
+          {
+            "target": "msg-017#0",
+            "type": "decision",
+            "note": "VO-14 is within the delegated authority for site instructions already issued, so we are fine to approve at PKR 1,240,000."
+          }
+        ],
+        "confidence": 0.83,
+        "rationale": "Internal reply in thr-017 recording an approval; treated as a decision on msg-017#0."
+      },
+      "provider": "stub",
+      "model": "keyword-rules-v1",
+      "latency_ms": 1
+    },
+    "msg-020": {
+      "output": {
+        "message_id": "msg-020",
+        "kind": "noise",
+        "noise_reason": "Unsolicited sales or recruiting",
+        "asks": [],
+        "updates": [],
+        "confidence": 0.9,
+        "rationale": "Matched text pattern for \"Unsolicited sales or recruiting\"."
+      },
+      "provider": "stub",
+      "model": "keyword-rules-v1",
+      "latency_ms": 0
+    },
+    "msg-021": {
+      "output": {
+        "message_id": "msg-021",
+        "kind": "work",
+        "noise_reason": null,
+        "asks": [
+          {
+            "title": "Q1 asset-level reporting pack",
+            "summary": "Good morning, Ahead of our investment committee on 2 April, could you send through the Q1 asset-level reporting pack for the Pentland Asia Infrastructure Fund II, specifically the operational KPIs for the solar and water",
+            "category": "investor_reporting",
+            "controlled": [],
+            "risk": "medium",
+            "risk_reason": "Mentions \"investment committee\"",
+            "exposure": null,
+            "due": "2026-04-02",
+            "due_source": "on 2 April",
+            "original_date": null,
+            "original_date_source": null,
+            "requester": {
+              "name": "Ellen Vosloo",
+              "email": "e.vosloo@cascadiapension.ca"
+            },
+            "waiting_party": {
+              "name": "Ellen Vosloo",
+              "email": "e.vosloo@cascadiapension.ca"
+            },
+            "suggested_owner": null,
+            "redirect_to": "Investor Relations",
+            "same_as": null,
+            "related_to": null
+          }
+        ],
+        "updates": [],
+        "confidence": 0.82,
+        "rationale": "Single ask."
+      },
+      "provider": "stub",
+      "model": "keyword-rules-v1",
+      "latency_ms": 2
+    },
+    "msg-022": {
+      "output": {
+        "message_id": "msg-022",
+        "kind": "noise",
+        "noise_reason": "Read receipt",
+        "asks": [],
+        "updates": [],
+        "confidence": 0.97,
+        "rationale": "Matched subject pattern for \"Read receipt\"."
+      },
+      "provider": "stub",
+      "model": "keyword-rules-v1",
+      "latency_ms": 0
+    },
+    "msg-023": {
+      "output": {
+        "message_id": "msg-023",
+        "kind": "update",
+        "noise_reason": null,
+        "asks": [],
+        "updates": [
+          {
+            "target": "msg-014#0",
+            "type": "escalation",
+            "note": "The seepage has reached the gravel margin now, roughly two metres beyond the bund on the e"
+          }
+        ],
+        "confidence": 0.74,
+        "rationale": "Follow-up in thr-008; attached to the most recent ask in the thread (msg-014#0) as an escalation."
+      },
+      "provider": "stub",
+      "model": "keyword-rules-v1",
+      "latency_ms": 0
+    },
+    "msg-024": {
+      "output": {
+        "message_id": "msg-024",
+        "kind": "work",
+        "noise_reason": null,
+        "asks": [
+          {
+            "title": "Leave carry forward question",
+            "summary": "Hi, I have 9 days of annual leave left from last year. HR portal says the carry-forward limit is 5 days but my letter of appointment says 10. Which one applies, and do I need to use them before 31 March? Sorry if this is",
+            "category": "hr",
+            "controlled": [],
+            "risk": "low",
+            "risk_reason": "No deadline or cost language found",
+            "exposure": null,
+            "due": null,
+            "due_source": null,
+            "original_date": null,
+            "original_date_source": null,
+            "requester": {
+              "name": "Saad Mahmood",
+              "email": "saad.mahmood@pentlandinfra.com"
+            },
+            "waiting_party": {
+              "name": "Saad Mahmood",
+              "email": "saad.mahmood@pentlandinfra.com"
+            },
+            "suggested_owner": null,
+            "redirect_to": "HR",
+            "same_as": null,
+            "related_to": null
+          }
+        ],
+        "updates": [],
+        "confidence": 0.82,
+        "rationale": "Single ask."
+      },
+      "provider": "stub",
+      "model": "keyword-rules-v1",
+      "latency_ms": 0
+    },
+    "msg-025": {
+      "output": {
+        "message_id": "msg-025",
+        "kind": "noise",
+        "noise_reason": "Newsletter or marketing",
+        "asks": [],
+        "updates": [],
+        "confidence": 0.93,
+        "rationale": "Matched text pattern for \"Newsletter or marketing\"."
+      },
+      "provider": "stub",
+      "model": "keyword-rules-v1",
+      "latency_ms": 0
+    },
+    "msg-026": {
+      "output": {
+        "message_id": "msg-026",
+        "kind": "work",
+        "noise_reason": null,
+        "asks": [
+          {
+            "title": "Authority letter needed — consignment KHI-88190 clearing Monday",
+            "summary": "Dear Sir, Consignment KHI-88190 (two transformer radiators, Hub terminal) is at Karachi port. To file the GD we require a signed and stamped authority letter on your letterhead naming Meridian Customs as clearing agent f",
+            "category": "customs",
+            "controlled": [
+              "letterhead"
+            ],
+            "risk": "high",
+            "risk_reason": "Controlled category: letterhead",
+            "exposure": {
+              "amount": 240,
+              "currency": "USD",
+              "per": "day",
+              "from": "2026-03-16",
+              "note": "Demurrage begins to accrue from Monday 16 March at USD 240 per day"
+            },
+            "due": "2026-03-16",
+            "due_source": "before Monday",
+            "original_date": null,
+            "original_date_source": null,
+            "requester": {
+              "name": "Imran Sheikh",
+              "email": "imran@meridiancustoms.com.pk"
+            },
+            "waiting_party": {
+              "name": "Imran Sheikh",
+              "email": "imran@meridiancustoms.com.pk"
+            },
+            "suggested_owner": "Bilal",
+            "redirect_to": null,
+            "same_as": null,
+            "related_to": null
+          }
+        ],
+        "updates": [],
+        "confidence": 0.82,
+        "rationale": "flagged letterhead (matched \"signed and stamped\")."
+      },
+      "provider": "stub",
+      "model": "keyword-rules-v1",
+      "latency_ms": 0
+    },
+    "msg-027": {
+      "output": {
+        "message_id": "msg-027",
+        "kind": "noise",
+        "noise_reason": "Out-of-office auto-reply",
+        "asks": [],
+        "updates": [],
+        "confidence": 0.97,
+        "rationale": "Matched subject pattern for \"Out-of-office auto-reply\"."
+      },
+      "provider": "stub",
+      "model": "keyword-rules-v1",
+      "latency_ms": 0
+    },
+    "msg-028": {
+      "output": {
+        "message_id": "msg-028",
+        "kind": "work",
+        "noise_reason": null,
+        "asks": [
+          {
+            "title": "Updated bank details for INV-2291 settlement",
+            "summary": "Dear Valued Client, Please note that with immediate effect our banking details have CHANGED due to an internal restructuring of our treasury operations. All pending payments including INV-2291 must now be remitted to: Ac",
+            "category": "bank_change",
+            "controlled": [
+              "bank_details"
+            ],
+            "risk": "high",
+            "risk_reason": "Controlled category: bank_details",
+            "exposure": null,
+            "due": null,
+            "due_source": null,
+            "original_date": null,
+            "original_date_source": null,
+            "requester": {
+              "name": "Delta Civil Works — Finance",
+              "email": "finance@deltacivilworks-pk.com"
+            },
+            "waiting_party": {
+              "name": "Delta Civil Works — Finance",
+              "email": "finance@deltacivilworks-pk.com"
+            },
+            "suggested_owner": "Bilal",
+            "redirect_to": null,
+            "same_as": null,
+            "related_to": "msg-003#0"
+          }
+        ],
+        "updates": [],
+        "confidence": 0.82,
+        "rationale": "flagged bank_details (matched \"bank details\"). Shares INV-2291 with msg-003#0 but is a bank change, so linked rather than merged."
+      },
+      "provider": "stub",
+      "model": "keyword-rules-v1",
+      "latency_ms": 0
+    },
+    "msg-029": {
+      "output": {
+        "message_id": "msg-029",
+        "kind": "noise",
+        "noise_reason": "Newsletter or marketing",
+        "asks": [],
+        "updates": [],
+        "confidence": 0.93,
+        "rationale": "Matched text pattern for \"Newsletter or marketing\"."
+      },
+      "provider": "stub",
+      "model": "keyword-rules-v1",
+      "latency_ms": 0
+    },
+    "msg-030": {
+      "output": {
+        "message_id": "msg-030",
+        "kind": "work",
+        "noise_reason": null,
+        "asks": [
+          {
+            "title": "Vendor registration — Vertex Power Solutions (documents attached)",
+            "summary": "Dear Operations, Further to our discussion with Mr Junaid at the Lahore exhibition, please find our vendor registration pack for supply of HV switchgear and associated commissioning services: - Company registration certi",
+            "category": "vendor_registration",
+            "controlled": [
+              "bank_details",
+              "new_vendor"
+            ],
+            "risk": "high",
+            "risk_reason": "Controlled category: bank_details, new_vendor",
+            "exposure": null,
+            "due": null,
+            "due_source": null,
+            "original_date": null,
+            "original_date_source": null,
+            "requester": {
+              "name": "Nadia Ashraf",
+              "email": "n.ashraf@vertexpower.com"
+            },
+            "waiting_party": {
+              "name": "Nadia Ashraf",
+              "email": "n.ashraf@vertexpower.com"
+            },
+            "suggested_owner": "Daniyal",
+            "redirect_to": null,
+            "same_as": null,
+            "related_to": null
+          }
+        ],
+        "updates": [],
+        "confidence": 0.82,
+        "rationale": "flagged bank_details (matched \"Bank details\"). flagged new_vendor (matched \"Vendor registration\")."
+      },
+      "provider": "stub",
+      "model": "keyword-rules-v1",
+      "latency_ms": 0
+    },
+    "msg-031": {
+      "output": {
+        "message_id": "msg-031",
+        "kind": "work",
+        "noise_reason": null,
+        "asks": [
+          {
+            "title": "Can you sort this out?",
+            "summary": "See attached. Needs dealing with today please. TM Sent from my phone",
+            "category": "general",
+            "controlled": [],
+            "risk": "medium",
+            "risk_reason": "Mentions \"today\"",
+            "exposure": null,
+            "due": null,
+            "due_source": null,
+            "original_date": null,
+            "original_date_source": null,
+            "requester": {
+              "name": "Tariq Mehmood",
+              "email": "tariq.mehmood@pentlandinfra.com"
+            },
+            "waiting_party": {
+              "name": "Tariq Mehmood",
+              "email": "tariq.mehmood@pentlandinfra.com"
+            },
+            "suggested_owner": null,
+            "redirect_to": null,
+            "same_as": null,
+            "related_to": null
+          }
+        ],
+        "updates": [],
+        "confidence": 0.3,
+        "rationale": "No category matched. Body is 70 characters; the content is in an attachment the model cannot read."
+      },
+      "provider": "stub",
+      "model": "keyword-rules-v1",
+      "latency_ms": 1
+    },
+    "msg-032": {
+      "output": {
+        "message_id": "msg-032",
+        "kind": "noise",
+        "noise_reason": "Newsletter or marketing",
+        "asks": [],
+        "updates": [],
+        "confidence": 0.93,
+        "rationale": "Matched text pattern for \"Newsletter or marketing\"."
+      },
+      "provider": "stub",
+      "model": "keyword-rules-v1",
+      "latency_ms": 0
+    },
+    "msg-033": {
+      "output": {
+        "message_id": "msg-033",
+        "kind": "work",
+        "noise_reason": null,
+        "asks": [
+          {
+            "title": "Interim audit — site visit and access, 23-25 March",
+            "summary": "Dear Operations, As part of the interim audit we plan to visit Kot Addu solar and Hub terminal between 23 and 25 March. We will need: - site access for three team members on both sites - a meeting room with network acces",
+            "category": "audit",
+            "controlled": [],
+            "risk": "medium",
+            "risk_reason": "Mentions \"audit\"",
+            "exposure": null,
+            "due": "2026-03-23",
+            "due_source": "between 23 and 25 March",
+            "original_date": null,
+            "original_date_source": null,
+            "requester": {
+              "name": "Mehreen Siddiqui",
+              "email": "m.siddiqui@haleemauditors.com"
+            },
+            "waiting_party": {
+              "name": "Mehreen Siddiqui",
+              "email": "m.siddiqui@haleemauditors.com"
+            },
+            "suggested_owner": "Daniyal",
+            "redirect_to": null,
+            "same_as": "msg-004#0",
+            "related_to": null
+          }
+        ],
+        "updates": [],
+        "confidence": 0.82,
+        "rationale": "Site access at the same site (kot-addu) as msg-004#0."
+      },
+      "provider": "stub",
+      "model": "keyword-rules-v1",
+      "latency_ms": 0
+    },
+    "msg-034": {
+      "output": {
+        "message_id": "msg-034",
+        "kind": "noise",
+        "noise_reason": "Acknowledgement, no action",
+        "asks": [],
+        "updates": [],
+        "confidence": 0.86,
+        "rationale": "Short acknowledgement: \"Thanks — received, we are all set now.\"."
+      },
+      "provider": "stub",
+      "model": "keyword-rules-v1",
+      "latency_ms": 0
+    },
+    "msg-035": {
+      "output": {
+        "message_id": "msg-035",
+        "kind": "noise",
+        "noise_reason": "Automated system notice",
+        "asks": [],
+        "updates": [],
+        "confidence": 0.9,
+        "rationale": "Matched from pattern for \"Automated system notice\"."
+      },
+      "provider": "stub",
+      "model": "keyword-rules-v1",
+      "latency_ms": 0
+    },
+    "msg-036": {
+      "output": {
+        "message_id": "msg-036",
+        "kind": "update",
+        "noise_reason": null,
+        "asks": [],
+        "updates": [
+          {
+            "target": "msg-004#0",
+            "type": "chaser",
+            "note": "Chased: \"Any update on the below?\""
+          },
+          {
+            "target": "msg-004#1",
+            "type": "chaser",
+            "note": "Chased: \"Any update on the below?\""
+          },
+          {
+            "target": "msg-004#2",
+            "type": "chaser",
+            "note": "Chased: \"Any update on the below?\""
+          }
+        ],
+        "confidence": 0.88,
+        "rationale": "Reply in thr-004 asking for an update; attached as a chaser to msg-004#0, msg-004#1, msg-004#2."
+      },
+      "provider": "stub",
+      "model": "keyword-rules-v1",
+      "latency_ms": 0
+    }
+  }
+}

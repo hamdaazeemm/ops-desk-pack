@@ -1,0 +1,15 @@
+{
+  "_note": "Mock internal registers. Fabricated for the demo; the pack does not include them. The gates and the domain check read from here.",
+  "vendors": [
+    { "name": "Delta Civil Works", "match": ["delta civil"], "domains": ["deltacivilworks.com.pk"], "phone_on_file": "+92 42 3577 1100 (Accounts, from vendor master)" },
+    { "name": "Zenith Engineering", "match": ["zenith"], "domains": ["zenitheng.com.pk"], "phone_on_file": "+92 300 841 2290 (Adeel Butt)" },
+    { "name": "Meridian Customs Services", "match": ["meridian customs"], "domains": ["meridiancustoms.com.pk"], "phone_on_file": "+92 21 3241 7788" },
+    { "name": "Crescent Insurance Brokers", "match": ["crescent insurance"], "domains": ["crescentinsurancebrokers.com"], "phone_on_file": "+92 21 3563 0021" },
+    { "name": "Northgate Logistics", "match": ["northgate"], "domains": ["northgatelogistics.com"], "phone_on_file": "+92 21 3455 9012" },
+    { "name": "Hydroflow Systems", "match": ["hydroflow"], "domains": ["hydroflowsystems.com"], "phone_on_file": "+92 42 3712 4410" }
+  ],
+  "ndas": [
+    { "counterparty": "Saeed & Co (buy-side consortium, Project Meridian)", "match": ["saeedandco.law", "project meridian"], "status": "circulated", "circulated": "2026-03-10", "executed": null }
+  ],
+  "signatories": ["Tariq Mehmood", "Farah Nadeem"]
+}
