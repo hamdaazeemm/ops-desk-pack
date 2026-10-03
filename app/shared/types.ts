@@ -98,6 +98,9 @@ export type WaitingParty = {
 
 export type Prerequisite = { kind: Controlled; by: string; at: string; detail: string };
 
+/** An email written on the ask and sent through the shared mailbox (simulated in the slice). */
+export type Outbound = { at: string; by: string; to: string; subject: string; body: string; mode: 'reply' | 'new'; told: string | null };
+
 export type Ask = {
   id: string;
   title: string;
@@ -126,6 +129,7 @@ export type Ask = {
   redirected_to: string | null;
   messages: { message_id: string; role: MsgRole; ask_ref: string | null; note?: string }[];
   repliers: { person: string; at: string }[];
+  outbound: Outbound[];
   chase_count: number;
   prerequisites: Prerequisite[];
   released: { kind: Controlled; by: string; at: string }[];

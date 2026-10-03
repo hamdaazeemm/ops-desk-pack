@@ -56,12 +56,12 @@ Use **Viewing as** (top right) to switch people. The clock starts at 17:30 on th
 1. Desk: 14 open asks from 36 messages, 13 with nobody's name on them. Sorted by what is about to go wrong: the regulator letter (A-05) is due **tomorrow** and is **13 days old**, measured from the 27 February notice, not from when it reached the desk.
 2. Junaid's msg-004 ("three things, sorry to bundle them") is three rows: A-01, A-02, A-03. A-02 (gate passes) shows **3 sources merged**: Junaid's ask, Rizwan's msg-008, and one wrong merge (below). A-01 (Delta invoice) merges Delta's own chase (msg-003) with Junaid's.
 3. A-07: the oil leak, split out of the gate-pass thread (msg-014), shown as **Escalated** (msg-023, "Who is handling this?").
-4. Open A-02. Under Owner, set Outlook to Omar and click **replies from the shared mailbox**. Omar now owns it without opening the app. Then make Ayesha reply: the **"Someone else is already in this thread"** banner appears, which is Omar's one wish.
+4. Open A-02. Under Owner, set the name to Omar and click **replies from the shared mailbox**: this stands in for Omar answering in Outlook without ever opening the app, and it makes him the owner. Then, as Ayesha, click **Reply on the thread** and send a line: the **"Someone else is already in this thread"** banner appears, which is Omar's one wish. (Sends are simulated: logged and shown on the ask, no mail leaves.)
 5. Open A-13 (bank-detail change). Note the domain mismatch flag and the purple gate. There is no release button. Record a phone verification against the number on file; the release appears. Everything is in the **Audit log**.
 
 **Flow 2 — done means told** (as Bilal)
 6. Open A-09 (Zenith VO-14). Bilal's "Approved on our side. Closing this one out on the tracker." landed as **Decided, but not done**, because Zenith has not been told and PKR 85,000/day is still running. This is the January failure, recurring in today's mailbox.
-7. Copy the draft, click **Record that Adeel Butt was told**, then **Mark resolved**.
+7. The reply box is open and prefilled from Bilal's recorded decision, addressed to Adeel Butt as `ops@`. Press **Send via ops@ (simulated)**: the ask moves to *Told* and the audit log records who told whom and how. Then **Mark resolved**. (**Record that Adeel Butt was told** is there for a phone call or a reply made from Outlook.) **New email** on the same panel writes to someone not on the thread.
 8. Switch to **Junaid**. His page shows each of his three asks in plain words. This page replaces msg-036 ("Any update? ... just tell me who").
 
 **Where it goes wrong, live** (as Ayesha)

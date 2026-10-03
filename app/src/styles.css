@@ -173,6 +173,12 @@ button.release { background: var(--lock); border-color: var(--lock); margin-top:
 .override-note { font-size: 12px; color: var(--muted); background: #f3f4f6; padding: 6px 8px; border-radius: 6px; margin: 6px 0; }
 
 .next .told { display: flex; flex-direction: column; gap: 6px; margin: 8px 0; }
+.compose { background: #f8fafd; border: 1px solid #b9c9e4; border-radius: 8px; padding: 10px; margin: 8px 0; }
+.compose .lbl { width: 56px; color: var(--muted); font-size: 12px; }
+.compose textarea { margin: 6px 0; font-size: 13px; }
+.check { display: flex; gap: 8px; align-items: flex-start; font-size: 12px; margin: 6px 0; }
+.check input { flex: none; min-width: 0; margin-top: 2px; }
+.msg.sent { background: #f3faf5; border-color: #c6e6d1; }
 .draft { background: #f8fafd; border: 1px dashed #b9c9e4; border-radius: 8px; padding: 8px 10px; margin: 8px 0; }
 .draft pre { font-size: 13px; }
 button.resolve { background: var(--low); border-color: var(--low); }

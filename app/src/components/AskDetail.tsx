@@ -150,6 +150,19 @@ export default function AskDetail({ ask, data, user, run, close, open }: {
         );
       })}
 
+      {(ask.outbound ?? []).map((o, i) => (
+        <div key={i} className="msg sent">
+          <div className="msg-head">
+            <span className="chip ok">sent by {o.by} (simulated)</span>
+            <span className="from">{o.mode === 'reply' ? 'Reply' : 'New email'} to {o.to}</span>
+            <span className="muted">{fmtDesk(o.at)}</span>
+            {o.told && <span className="chip ok">told {o.told}</span>}
+          </div>
+          <div className="msg-subject">{o.subject}</div>
+          <pre className="small-text">{o.body}</pre>
+        </div>
+      ))}
+
       <h3>Model</h3>
       <div className="model-box">
         <div>
@@ -204,7 +217,7 @@ function Owner({ ask, user, run, now }: { ask: Ask; user: string; run: Run; now:
       )}
       {isOpen(ask) && (
         <div className="row sim">
-          <span className="muted">Outlook (simulated):</span>
+          <span className="muted" title="Omar's path: he replies in Outlook and never opens this screen. The mailbox connection would report it; this button stands in for that.">Replied in Outlook, not here:</span>
           <select value={replier} onChange={(e) => setReplier(e.target.value)}>
             {COORDINATORS.map((c) => <option key={c}>{c}</option>)}
           </select>
@@ -282,18 +295,14 @@ function NextStep({ ask, data, user, run }: { ask: Ask; data: StatePayload; user
     <div className="block next">
       <h3>Next step</h3>
 
-      {ask.status === 'decided' && untold.length > 0 && (
-        <div className="draft">
-          <div className="muted">Draft for {untold[0].w.name} - copy into Outlook and send. The desk never sends email itself.</div>
-          <pre>{draftToldMessage(ask, untold[0].w.name, user, data.messages)}</pre>
-        </div>
-      )}
+      <Compose ask={ask} data={data} user={user} run={run} />
 
       {untold.length > 0 && (
         <div className="told">
+          <div className="muted small-text">Told them another way (phone, in person, from Outlook)? Record it here.</div>
           <input value={channel} onChange={(e) => setChannel(e.target.value)} aria-label="How they were told" />
           {untold.map(({ w, i }) => (
-            <button key={i} className={ask.status === 'decided' ? '' : 'ghost'} onClick={() => run({ type: 'told', ask_id: ask.id, party: i, channel })}>
+            <button key={i} className="ghost" onClick={() => run({ type: 'told', ask_id: ask.id, party: i, channel })}>
               Record that {w.name} was told
             </button>
           ))}
@@ -340,6 +349,81 @@ function NextStep({ ask, data, user, run }: { ask: Ask; data: StatePayload; user
           </button>
         </div>
       )}
+    </div>
+  );
+}
+
+/**
+ * Write the email on the ask and send it through the shared mailbox. In the slice the send is simulated:
+ * nothing leaves the laptop, but the desk records it exactly as a real send would (claim, reply, told).
+ */
+function Compose({ ask, data, user, run }: { ask: Ask; data: StatePayload; user: string; run: Run }) {
+  const src = data.messages.find((m) => m.id === ask.messages[0]?.message_id);
+  const untold = ask.waiting.map((w, i) => ({ w, i })).filter(({ w }) => !w.told_at);
+  const first = untold[0] ?? (ask.waiting[0] ? { w: ask.waiting[0], i: 0 } : null);
+  const [open, setOpen] = useState(ask.status === 'decided');
+  const [mode, setMode] = useState<'reply' | 'new'>('reply');
+  const [toIdx, setToIdx] = useState<number | 'other'>(first ? first.i : 'other');
+  const [other, setOther] = useState('');
+  const [subject, setSubject] = useState(src ? `RE: ${src.subject.replace(/^((re|fwd?):\s*)+/i, '')}` : '');
+  const [body, setBody] = useState(ask.status === 'decided' && first ? draftToldMessage(ask, first.w.name, user, data.messages) : '');
+  const [marksTold, setMarksTold] = useState(ask.status === 'decided');
+  const held = heldKinds(ask);
+
+  const party = toIdx === 'other' ? null : ask.waiting[toIdx];
+  const to = party ? `${party.name}${party.email ? ` <${party.email}>` : ''}` : other;
+
+  if (!open) {
+    return (
+      <div className="row">
+        <button onClick={() => setOpen(true)}>Write a reply</button>
+        <button className="ghost" onClick={() => { setMode('new'); setToIdx('other'); setSubject(''); setOpen(true); }}>New email</button>
+        <span className="muted small-text">Sent through ops@ in Outlook. Simulated in this demo.</span>
+      </div>
+    );
+  }
+
+  return (
+    <div className="compose">
+      <div className="row">
+        <button className={mode === 'reply' ? 'small' : 'ghost small'} onClick={() => { setMode('reply'); if (src) setSubject(`RE: ${src.subject.replace(/^((re|fwd?):\s*)+/i, '')}`); }}>Reply on the thread</button>
+        <button className={mode === 'new' ? 'small' : 'ghost small'} onClick={() => { setMode('new'); setSubject(''); }}>New email</button>
+        <span className="muted small-text">from ops@pentlandinfra.com as {user}</span>
+      </div>
+      <div className="row">
+        <label className="lbl">To</label>
+        <select value={String(toIdx)} onChange={(e) => setToIdx(e.target.value === 'other' ? 'other' : Number(e.target.value))}>
+          {ask.waiting.map((w, i) => <option key={i} value={i}>{w.name}{w.email ? ` <${w.email}>` : ''}{w.told_at ? ' (already told)' : ''}</option>)}
+          <option value="other">Someone else...</option>
+        </select>
+        {toIdx === 'other' && <input value={other} onChange={(e) => setOther(e.target.value)} placeholder="name@company.com" />}
+      </div>
+      <div className="row">
+        <label className="lbl">Subject</label>
+        <input value={subject} onChange={(e) => setSubject(e.target.value)} />
+      </div>
+      <textarea rows={7} value={body} onChange={(e) => setBody(e.target.value)} placeholder="Write it in plain words. No category, no priority." />
+      {party && !party.told_at && (
+        <label className="check">
+          <input type="checkbox" checked={marksTold} onChange={(e) => setMarksTold(e.target.checked)} />
+          This email tells {party.name} the outcome (records "told"). Leave unticked for "we are looking into it".
+        </label>
+      )}
+      {held.length > 0 && (
+        <div className="banner warn small-text">
+          Held: {held.map((k) => CONTROLLED_LABEL[k].toLowerCase()).join(', ')}. You can reply, but do not grant, confirm or commit anything in this email until the prerequisite is recorded above. The send is logged as "sent while held".
+        </div>
+      )}
+      <div className="row">
+        <button disabled={!body.trim() || !to.trim()} onClick={async () => {
+          const ok = await run({ type: 'send', ask_id: ask.id, to, subject, body, mode, told_party: party && !party.told_at && marksTold ? toIdx : null });
+          if (ok) { setOpen(false); setBody(''); }
+        }}>
+          Send via ops@ (simulated)
+        </button>
+        <button className="ghost small" onClick={() => setOpen(false)}>Cancel</button>
+        <span className="muted small-text">Sending claims the ask for you if nobody owns it.</span>
+      </div>
     </div>
   );
 }

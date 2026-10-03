@@ -7,7 +7,7 @@ Tariq: "I want to know what that is per month before we start… and what happen
 - **Volume:** 120 messages per working day (desk notes; see D15 on why I doubt it) x 22 working days = **2,640 messages/month**. Doubled: 5,280.
 - **Tokens per message:** ~2,000 input (instructions and schema ~1,000; the message ~300 on average, up to ~1,500 for a forwarded chain like msg-010; open asks for matching ~700) and ~350 output.
 - **One call per message.** Plus a second check on ~15% (controlled categories and low confidence).
-- **Prices:** published list prices at time of writing, per million tokens. *Re-check before committing; they change.*
+- **Prices:** published list prices at time of writing, per million tokens. 
   - Mid-tier model (Claude Sonnet class): $3 input / $15 output.
   - Small model (Claude Haiku class): $1 input / $5 output.
 

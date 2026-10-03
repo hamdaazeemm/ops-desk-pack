@@ -35,6 +35,7 @@ Context and evidence: `PRODUCT_BRIEF.md`, `EVIDENCE.md`. Reasoning behind each r
 | R14 | Redirect as an end state, with "sender told where" | P0 | 016, 021, 024 (D11) |
 | R15 | Audit log of every model and human action | P0 | Elena |
 | R16 | Live mailbox connection (read + detect replies) | P1 | Slice simulates it |
+| R22 | Write a **reply** or a **new email** from the ask, sent as `ops@`; sending claims the ask and can record *Told* for the chosen waiting party. Nothing sends without a person pressing Send | P1 | Ayesha: one place to work from (D19). Slice simulates the send |
 | R17 | Unclaimed nudge to the day's cover person; daily rota | P1 | D3 |
 | R18 | Weekly one-screen digest for Tariq | P1 | Tariq |
 | R19 | Detect outbound reply to the waiting party as a candidate *Told* | P2 | D4 |
@@ -84,8 +85,10 @@ Item detail (right panel): title and summary; status steps; who is waiting; owne
 ```
 msg-017 Zenith asks for written approval  ->  ask "Zenith VO-14 approval", waiting party: Zenith
 msg-019 Bilal: "Approved... closing out"  ->  status DECIDED, flag "Zenith not told", age keeps running
-Bilal opens the item                     ->  only forward action: "Record that Zenith was told"
-                                              + draft approval note to copy into Outlook
+Bilal opens the item                     ->  only forward action: tell Zenith
+                                              reply box prefilled from the recorded decision,
+                                              sent as ops@ (simulated); Send records "told"
+                                              (or: record that Zenith was told another way)
 Bilal sends from Outlook, records it     ->  TOLD (who, how, when) -> RESOLVED
 Junaid's status page                     ->  "Zenith VO-14 — approved, Zenith told 17:42"
 ```

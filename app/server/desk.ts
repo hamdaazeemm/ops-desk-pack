@@ -109,6 +109,7 @@ function newAsk(state: DeskState, msg: Message, a: ModelAsk, ref: string | null,
     redirected_to: null,
     messages: [{ message_id: msg.id, role: 'source', ask_ref: ref }],
     repliers: [],
+    outbound: [],
     chase_count: 0,
     prerequisites: [],
     released: [],
@@ -263,6 +264,7 @@ export type Action =
   | { type: 'claim'; ask_id: string }
   | { type: 'unclaim'; ask_id: string }
   | { type: 'reply'; ask_id: string; person: string }
+  | { type: 'send'; ask_id: string; to: string; subject: string; body: string; mode: 'reply' | 'new'; told_party: number | null }
   | { type: 'set_waiting'; ask_id: string; on: string }
   | { type: 'decide'; ask_id: string; text: string }
   | { type: 'told'; ask_id: string; party: number; channel: string }
@@ -340,6 +342,31 @@ export function applyAction(ctx: Ctx, action: Action, actor: string): void {
         audit(state, { at: now, actor: action.person, actor_type: 'person', action: 'replied in Outlook', ask_id: ask.id, detail: `${action.person} replied, but ${ask.owner} owns this ask. Collision shown to both.` });
       } else {
         audit(state, { at: now, actor: action.person, actor_type: 'person', action: 'replied in Outlook', ask_id: ask.id, detail: `${action.person} replied (owner).` });
+      }
+      return;
+    }
+    case 'send': {
+      const ask = getAsk(action.ask_id);
+      ask.outbound ??= [];
+      if (!action.to.trim()) throw new ActionError('Say who it goes to');
+      if (!action.body.trim()) throw new ActionError('Write the email');
+      const party = action.told_party !== null ? ask.waiting[action.told_party] : undefined;
+      ask.outbound.push({ at: now, by: actor, to: action.to.trim(), subject: action.subject.trim(), body: action.body.trim(), mode: action.mode, told: party?.name ?? null });
+      ask.repliers.push({ person: actor, at: now });
+      if (!ask.owner) {
+        ask.owner = actor;
+        ask.owner_source = 'reply';
+        ask.owned_at = now;
+        if (ask.status === 'new') ask.status = 'claimed';
+      }
+      const held = ask.controlled.filter((c) => !ask.released.some((r) => r.kind === c));
+      log('sent email (simulated)', `${action.mode === 'reply' ? 'Reply' : 'New email'} to ${action.to.trim()}: "${action.subject.trim()}" - ${action.body.trim().replace(/\s+/g, ' ').slice(0, 90)}${held.length ? ` [sent while held: ${held.join(', ')} not released]` : ''}`, ask.id);
+      if (party && !party.told_at) {
+        party.told_at = now;
+        party.told_by = actor;
+        party.channel = `Email from ops@ (sent from the desk)`;
+        log('told', `${party.name} told by ${actor} via email sent from the desk`, ask.id);
+        if (ask.waiting.every((w) => w.told_at) && ask.status !== 'redirected') ask.status = 'told';
       }
       return;
     }

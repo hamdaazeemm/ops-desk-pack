@@ -34,7 +34,7 @@ One entry per judgement call. Message ids refer to `pack/inbox.json`; see `EVIDE
 - **Options:** replied; decided; the person waiting has been told.
 - **Chose:** **Resolved = the waiting party has been told the outcome.** Statuses: *New → Claimed → Waiting → Decided → Told → Resolved*. There is no path from *Decided* to *Resolved* that skips *Told*.
 - **Why:** msg-019: "Approved on our side. Closing this one out on the tracker." Zenith asked for approval *in writing* (msg-017), and standing time continues at PKR 85,000/day until they have it. This is the January failure that cost nine days (desk notes, Tariq).
-- **Ayesha's objection** ("people will click Done at the point they usually do") is answered by not having a Done button. At *Decided*, the only forward action is **Record that [waiting party] was told**, prefilled with who and how. The product also drafts the message to send from Outlook. A Decided ask is listed as *Decided — not told* in its own filter, with its age.
+- **Ayesha's objection** ("people will click Done at the point they usually do") is answered by not having a Done button. At *Decided*, the only forward action is telling the waiting party: a reply box prefilled from the recorded decision, sent as `ops@` (D19), or **Record that [waiting party] was told** for a phone call or a reply made from Outlook. A Decided ask is listed as *Decided — not told* in its own filter, with its age.
 - **Merged asks have more than one waiting party** (Delta and Junaid on the invoice). The ask is resolved when all of them have been told.
 - **Would change my mind:** if *Told* records turn out to be clicked without the message actually going, detect the outbound email to the waiting party instead (roadmap R2).
 
@@ -138,3 +138,11 @@ One entry per judgement call. Message ids refer to `pack/inbox.json`; see `EVIDE
 | Model-drafted "you have been told" message | Tone and content matched to each case | The slice fills a template from the recorded decision. Enough to show the step; not good enough to send unedited |
 | Login | Real identity | A name picker. Fine for a local demo; not for production |
 | Tests | Confidence when changing rules live | Accepted; the brief does not score them |
+
+## D19. Writing email from the ask
+
+- **Question:** if a reply from Outlook claims the ask (D3), why also let people write from the desk?
+- **Options:** Outlook only, with the desk drafting text to copy; write from the desk only; both.
+- **Chose:** **Both.** The ask has *Reply on the thread* and *New email*, sent as `ops@`. Sending claims the ask (same rule as an Outlook reply) and, when the person ticks "this email tells X the outcome", records *Told* for that party. Outlook replies still count; the desk never requires anyone to come here.
+- **Why:** Ayesha and Bilal work the list; making them switch to Outlook to say "approved" and then come back to record it is two trips for one sentence, and the second trip is the one that gets skipped (January Zenith). Omar never opens the desk and should not have to; his Outlook reply still claims.
+- **Limits:** nothing sends without a person pressing Send; there is no auto-reply. Sending from an ask whose controlled action is still held is allowed (a holding reply is normal) but the audit entry records which controls were unreleased at the time. In the slice the send is simulated: it is logged and shown on the ask, no mail leaves. Production needs Graph `sendMail` as the shared mailbox, which is the same connector risk noted in D18.
