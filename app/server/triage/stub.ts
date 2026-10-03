@@ -127,8 +127,8 @@ function extractExposure(text: string, category: string): Exposure {
 
 function riskOf(text: string, controlled: Controlled[]): { risk: Risk; reason: string } {
   const hi = text.match(HIGH_RISK);
-  if (controlled.length) return { risk: 'high', reason: `Controlled category: ${controlled.join(', ')}` };
   if (hi) return { risk: 'high', reason: `Mentions "${hi[0]}"` };
+  if (controlled.length) return { risk: 'high', reason: `Controlled category: ${controlled.join(', ')}` };
   const med = text.match(MEDIUM_RISK);
   if (med) return { risk: 'medium', reason: `Mentions "${med[0]}"` };
   return { risk: 'low', reason: 'No deadline or cost language found' };

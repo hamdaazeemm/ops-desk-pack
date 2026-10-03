@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-03T19:21:51.635Z",
+  "generated_at": "2026-10-03T19:32:28.592Z",
   "provider": "stub",
   "model": "keyword-rules-v1",
   "results": {
@@ -15,7 +15,7 @@
       },
       "provider": "stub",
       "model": "keyword-rules-v1",
-      "latency_ms": 1
+      "latency_ms": 0
     },
     "msg-002": {
       "output": {
@@ -45,7 +45,7 @@
               "bank_details"
             ],
             "risk": "high",
-            "risk_reason": "Controlled category: bank_details",
+            "risk_reason": "Mentions \"Overdue\"",
             "exposure": {
               "amount": 4180000,
               "currency": "PKR",
@@ -77,7 +77,7 @@
       },
       "provider": "stub",
       "model": "keyword-rules-v1",
-      "latency_ms": 5
+      "latency_ms": 4
     },
     "msg-004": {
       "output": {
@@ -439,7 +439,7 @@
       },
       "provider": "stub",
       "model": "keyword-rules-v1",
-      "latency_ms": 0
+      "latency_ms": 1
     },
     "msg-015": {
       "output": {
@@ -731,7 +731,7 @@
               "letterhead"
             ],
             "risk": "high",
-            "risk_reason": "Controlled category: letterhead",
+            "risk_reason": "Mentions \"Demurrage\"",
             "exposure": {
               "amount": 240,
               "currency": "USD",

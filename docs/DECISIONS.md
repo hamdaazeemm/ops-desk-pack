@@ -135,5 +135,6 @@ One entry per judgement call. Message ids refer to `pack/inbox.json`; see `EVIDE
 | Reading attachments | msg-031's contents | Attachment-only mail is always *Needs a look* |
 | Roles and permissions on release | Only authorised people release controlled actions | The slice records *who* released; it does not stop the wrong person. Elena's audit need is met; her access need is not |
 | Daily rota | Explicit cover person | "Cover" is whoever is viewing |
+| Model-drafted "you have been told" message | Tone and content matched to each case | The slice fills a template from the recorded decision. Enough to show the step; not good enough to send unedited |
 | Login | Real identity | A name picker. Fine for a local demo; not for production |
 | Tests | Confidence when changing rules live | Accepted; the brief does not score them |

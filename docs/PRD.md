@@ -60,9 +60,9 @@ Desk list:
 ```
 +---------------------------------------------------------------------------------------------+
 | Pentland Ops Desk            Thu 12 Mar 17:30           Viewing as [Ayesha v]               |
-| Desk (14)   Needs a look (2)   Noise (16)   Requester view   Audit                          |
+| Desk (14)   Needs a look (1)   Noise (17)   Requester view   Audit                          |
 +---------------------------------------------------------------------------------------------+
-|  14 open    9 unclaimed    5 held by a control    1 decided, not told    PKR 85k/day at stake |
+|  14 open    13 unclaimed    5 held by a control    1 decided, not told   PKR 85k/day at stake |
 |  [All] [Mine] [Unclaimed] [Held] [Decided, not told]                                         |
 +---------------------------------------------------------------------------------------------+
 | ASK                              WHO'S WAITING      OWNER                AGE   DUE     STATUS   |
@@ -74,6 +74,8 @@ Desk list:
 +---------------------------------------------------------------------------------------------+
   !  past unclaimed limit    #  controlled category    xN  chased N times
 ```
+
+As built: [screens/01-desk.png](screens/01-desk.png).
 
 Item detail (right panel): title and summary; status steps; who is waiting; owner and suggestion; the one next action for the current status; gate panel if controlled; source messages, expandable; model output with confidence, reason and the reverse actions; the item's audit trail.
 
@@ -88,7 +90,9 @@ Bilal sends from Outlook, records it     ->  TOLD (who, how, when) -> RESOLVED
 Junaid's status page                     ->  "Zenith VO-14 — approved, Zenith told 17:42"
 ```
 
-Junaid's status page:
+As built: [screens/02-zenith-decided-not-told.png](screens/02-zenith-decided-not-told.png).
+
+Junaid's status page (as built: [screens/04-requester-junaid.png](screens/04-requester-junaid.png)):
 
 ```
 +------------------------------------------------------------+
@@ -101,7 +105,13 @@ Junaid's status page:
 
 ### Flow 3 (inside both) — a controlled ask
 
-msg-028 opens with the gate panel: *Bank-detail change. Release unavailable until a phone verification is recorded on a number already on file (not from this email). Sender domain deltacivilworks-pk.com does not match deltacivilworks.com.pk on file.* Recording a verification needs the number called, who answered, and the outcome. *Override: this is not a bank-detail change* requires a reason and is audited.
+msg-028 opens with the gate panel: *Bank-detail change. Release unavailable until a phone verification is recorded on a number already on file (not from this email). Sender domain deltacivilworks-pk.com does not match deltacivilworks.com.pk on file.* Recording a verification needs the number called, who answered, and the outcome. *Override: this is not a bank-detail change* requires a reason and is audited. As built: [screens/03-bank-change-gate.png](screens/03-bank-change-gate.png).
+
+## Worked hard cases
+
+**Three asks in one email (msg-004).** The model returns three asks. Ask 1 (site access, Kot Addu, Thursday 19th) has the same site and the same people as Rizwan's msg-008, which arrives 47 minutes later, so 008 merges into it: one item (A-02), two people waiting (Junaid and Rizwan), due Wednesday 18 March (Rizwan's "pass numbers by Wednesday close" is earlier than Junaid's Thursday). Ask 2 (Zenith insurance) becomes its own high-risk item (A-03), with "expired" as the risk reason, so it cannot be the one that "disappears". Ask 3 (Delta invoice) merges into Delta's own chase, msg-003 (A-01), and takes its age from 9 February, the invoice date. When Junaid chases at 17:15 (msg-036), the chase attaches to **all three** and each shows *Chased 1x*. Resolution needs Junaid told on each one separately. *Cost of getting it wrong:* the stub also merges the auditors' visit (msg-033) into A-02, because it mentions site access at Kot Addu. The merge is visible ("3 sources merged") and is undone with one click.
+
+**Forwarded chain with the deadline at the bottom (msg-010).** The message reaching the desk is "Fwd: Fwd: Fwd: FYI" from Daniyal, who goes on leave tomorrow. The model reads to the innermost forward and takes the title, the waiting party (Licensing Directorate, not Daniyal) and the dates from there: notice dated 27 February, "within ten (10) working days", so due **Friday 13 March**, computed as working days (Mon–Fri). The item's age runs from 27 February (13 days), not from 08:52 today. A rule flags any `.gov.pk` sender for same-day Compliance notification, and high risk puts it on the 30-minute claim limit. It is the top row on the desk.
 
 ## AI behaviour specification
 

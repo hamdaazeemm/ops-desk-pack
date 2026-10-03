@@ -1,4 +1,4 @@
 node_modules/
 dist/
 .env
-data/state.json
+app/data/state.json

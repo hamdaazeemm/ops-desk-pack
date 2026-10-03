@@ -173,4 +173,5 @@ export type StatePayload = {
   users: User[];
   now: string;
   live_model: { available: boolean; provider: string; reason: string };
+  vendors: { name: string; match: string[]; domains: string[]; phone_on_file: string }[];
 };
